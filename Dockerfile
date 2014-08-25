@@ -1,5 +1,5 @@
-FROM sameersbn/ubuntu:12.04.20140818
-MAINTAINER sameer@damagehead.com
+FROM ubuntu:14.04
+MAINTAINER lynxis@fe80.eu
 
 RUN add-apt-repository -y ppa:brightbox/ruby-ng && \
     apt-get update && \
@@ -8,6 +8,7 @@ RUN add-apt-repository -y ppa:brightbox/ruby-ng && \
       ruby2.1-dev libcurl4-openssl-dev libssl-dev \
       libmagickcore-dev libmagickwand-dev libmysqlclient-dev libpq-dev \
       libxslt1-dev libffi-dev libyaml-dev zlib1g-dev libzlib-ruby && \
+    apt-get dist-upgrade && \
     gem install --no-ri --no-rdoc bundler && \
     rm -rf /var/lib/apt/lists/* # 20140818
 
